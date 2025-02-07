@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} SafeVault - Contact {% endblock %}
+
+{% block static %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/contact.css' %}">
+{% endblock %}
+
+{% block main %}
+<main class="contact-container">
+    <strong id="msg">{{message}}</strong>
+    <section class="contact-details">
+        <h2>Contact Us</h2>
+        <form action="Contact" method="post" class="contact-form">
+            {% csrf_token %}
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+    </section>
+</main>
+
+<script>
+    function removeElementAfterTime(elementId, duration) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            setTimeout(() => {
+                element.style.display = "none";
+            }, duration);
+        }
+    }
+    removeElementAfterTime('msg', 2000);
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} SafeVault - Home {% endblock %}
+
+{% block static %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/index.css' %}">
+{% endblock %}
+
+{% block main %}
+<main></main>
+<div class="text">
+    <h2>Your Free and Secure Password Manager</h2>
+    <p>Store, generate, and manage your passwords with complete security. Access your credentials from anywhere, all in one place, completely free.</p>
+    {% if session == 0 %}
+    <a href="Register" class="cta-button">Get Started for Free</a>
+    {% else %}
+    <a href="Dashboard" class="cta-button">Go To Dashboard</a>
+    {% endif %}
+</div>
+{% endblock %}

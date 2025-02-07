@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>{% block title %} {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+    <script src="{% static 'JS/index.js' %}"></script>
+    {% block static %} {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>SafeVault</h1>
+        <button class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav>
+            {% if request.path == '/Home' %}<a style="color:#00c4cc;font-weight: 600;" href="/">Home</a>{% else %}<a href="/">Home</a>{% endif %}
+            {% if request.path == '/About' %}<a style="color:#00c4cc;font-weight: 600;" href="About">About</a>{% else %}<a href="About">About</a>{% endif %}
+            {% if request.path == '/Contact' %}<a style="color:#00c4cc;font-weight: 600;" href="Contact">Contact</a>{% else %}<a href="Contact">Contact</a>{% endif %}
+            {% if session == 0 %}<a href="Login">Login</a>{% else %}<a href="Logout">Logout</a>{% endif %}
+        </nav>
+        <div class="dropdown-menu">
+            {% if request.path == '/Home' %}<a style="color:#00c4cc;font-weight: 600;" href="/">Home</a>{% else %}<a href="/">Home</a>{% endif %}
+            {% if request.path == '/About' %}<a style="color:#00c4cc;font-weight: 600;" href="About">About</a>{% else %}<a href="About">About</a>{% endif %}
+            {% if request.path == '/Contact' %}<a style="color:#00c4cc;font-weight: 600;" href="Contact">Contact</a>{% else %}<a href="Contact">Contact</a>{% endif %}
+            {% if session == 0 %}<a href="Login">Login</a>{% else %}<a href="Logout">Logout</a>{% endif %}
+        </div>
+    </header>
+
+    {% block main %} {% endblock %}
+
+    <footer>
+        <p>&copy; {{Copyright}} SafeVault. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

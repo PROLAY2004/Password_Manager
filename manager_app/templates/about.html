@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} SafeVault - About {% endblock %}
+
+{% block static %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/about.css' %}">
+{% endblock %}
+
+{% block main %}
+<main class="about-container">
+    <section class="about-details">
+        <h2>Our Mission</h2>
+        <p>At SafeVault, we believe that security and convenience go hand in hand. Our mission is to empower individuals and organizations by providing a reliable, user-friendly password management platform.</p>
+        
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li><strong>Top-notch Security:</strong> Your data is encrypted and securely stored.</li>
+            <li><strong>Easy Access:</strong> Manage your credentials from anywhere on any device.</li>
+            <li><strong>Free Forever:</strong> Enjoy our services at no cost with no hidden fees.</li>
+        </ul>
+        
+        <h2>Get Started Today</h2>
+        <p>Sign up for free and take the first step toward a safer digital life.</p>
+        <a href="Register" class="cta-button">Join Us</a>
+    </section>
+</main>
+{% endblock %}

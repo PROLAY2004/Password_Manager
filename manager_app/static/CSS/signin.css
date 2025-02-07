@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0F1111;
+    color: #EEE;
+    font-family: Arial, sans-serif;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #EEE;
+    border-radius: 10px;
+    background-color: #121212;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #EEE;
+    background-color: #222;
+    color: #EEE;
+}
+p{
+    text-align: left;
+}
+a{
+    text-decoration: none;
+    color: rgb(197, 197, 110);
+}
+button {
+    background-color: #00c4cc;
+    width: 100%;
+    color: #EEE;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+strong{
+    padding:1%;
+    position: absolute;
+    left: 5%;
+    top: 2%;
+}
+button:hover {
+    background-color: #EEE;
+    color: #121212;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .login-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 16px;
+    }
+}

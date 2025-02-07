@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SafeVault - Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/dashboard.css' %}">
+    <script>
+        function toggleDialog() {
+            const dialog = document.querySelector('.dialog');
+            const overlay = document.querySelector('.overlay');
+            dialog.classList.toggle('show');
+            overlay.classList.toggle('show');
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                    document.querySelector('.profile img').src = reader.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="overlay" onclick="toggleDialog()"></div>
+
+    <header>
+        <h1>Welcome, {{user}}</h1>
+        <div class="profile" onclick="toggleDialog()">
+            <img src="{{image}}" alt="Profile Picture" />
+            
+        </div>
+    </header>
+
+    <div class="dialog">
+        <h2>Your Profile</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label>Name : {{user}}<br /><br />
+            <label>Email : {{email}}<br /><br />
+            <label>Phone : {{mobile}}<br /><br />
+            <label>Profile Picture : <input type="file" name="image"/></label><br/><br/>
+            <button type="submit" class="button" onclick="toggleDialog()">Close</button>
+        </form>
+    </div>
+
+    <main class="grid">
+        <div class="card">
+            <h3>Recent Passwords</h3>
+            <ul>
+                <li>Amazon - Last updated 2 days ago</li>
+                <li>Google - Last updated 1 week ago</li>
+                <li>Facebook - Last updated 3 weeks ago</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Security Alerts</h3>
+            <p>No new alerts.</p>
+        </div>
+
+        <div class="card">
+            <h3>Backup Status</h3>
+            <p>Last backup was completed 5 days ago.</p>
+            <a href="#" class="button">Backup Now</a>
+        </div>
+    </main>
+
+</body>
+
+</html>
